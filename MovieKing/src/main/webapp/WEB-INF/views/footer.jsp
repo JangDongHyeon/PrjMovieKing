@@ -17,7 +17,6 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
 </section>
 
 <!-- Bootstrap core JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3563eb87889701f4bab3b419b70c1471"></script>
 <script>
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스

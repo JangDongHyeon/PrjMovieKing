@@ -26,13 +26,14 @@
 				});
 				str+="/등급:&nbsp;";
 				$(data.audits).each(function(key,item){
+					if(key==1)return false;
 					str+=""+item.watchGradeNm+"&nbsp;&nbsp;";
 				});
 				str+="/시간:&nbsp;"+data.showTm+"분 &nbsp;/나라:&nbsp;";
 				$(data.nations).each(function(key,item){
 					str+=""+item.nationNm;
 				});
-				str+="</p><p>개봉:&nbsp;"+data.openDt+"</p>"
+				str+="</p><p>개봉:&nbsp;"+moment(data.openDt).format('MMM Do YYYY')+"</p>"
 				str+="<p><button class='btn btn-danger' style='text-align: center;'>예매</button></p>"
 				$("#movieG").append(str);
 			}
