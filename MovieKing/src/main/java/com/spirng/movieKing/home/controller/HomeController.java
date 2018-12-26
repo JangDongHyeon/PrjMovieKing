@@ -1,4 +1,4 @@
-package com.spirng.movie;
+package com.spirng.movieKing.home.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

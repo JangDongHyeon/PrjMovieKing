@@ -15,7 +15,7 @@
 				str+="<div class='col-sm-4 portfolio-item'>"
 				+"<h2 style='text-align: center; background-color:red; color:white;' >No."+item.rank+"</h2>";
 				str+="<div>"
-				+"<a href='/movies/detail?movieCd="+item.movieCd+"&im=s"+key+"'>"
+				+"<a href='/movies/detail?movieCd="+item.movieCd+"&im=s"+key+"&audiCnt="+item.audiAcc+"'>"
 				+"<img src='/resources/img/s"+key+".jpg' class='img-thumbnail' style='height:400px; width: 400px;' alt=''></a></div>";
 				str+="<div>"
 				+"<h3>"+item.movieNm+"</h3>"
