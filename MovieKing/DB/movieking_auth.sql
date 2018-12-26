@@ -16,26 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `auth`
---
-
-DROP TABLE IF EXISTS `auth`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `auth` (
-  `AUTH_CD` int(11) NOT NULL COMMENT '권한 코드',
-  `AUTH_NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '권한 이름',
-  PRIMARY KEY (`AUTH_CD`),
-  UNIQUE KEY `AUTH_NAME_UNIQUE` (`AUTH_NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='권한 테이블';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `auth`
 --
 
 LOCK TABLES `auth` WRITE;
 /*!40000 ALTER TABLE `auth` DISABLE KEYS */;
+INSERT INTO `auth` VALUES (1,'ADMIN'),(2,'USER');
 /*!40000 ALTER TABLE `auth` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:34
+-- Dump completed on 2018-12-26 17:20:26

@@ -16,25 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `seat`
---
-
-DROP TABLE IF EXISTS `seat`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `seat` (
-  `SEAT_CD` int(11) NOT NULL COMMENT '좌석 코드',
-  `SEAT_NM` varchar(2) NOT NULL COMMENT '좌석 이름',
-  PRIMARY KEY (`SEAT_CD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='좌석 테이블';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `seat`
 --
 
 LOCK TABLES `seat` WRITE;
 /*!40000 ALTER TABLE `seat` DISABLE KEYS */;
+INSERT INTO `seat` VALUES (1,'A1'),(2,'A2'),(3,'A3'),(4,'A4'),(5,'A5'),(6,'A6'),(7,'A7'),(8,'A8'),(9,'A9'),(10,'A10'),(11,'A1'),(12,'A2'),(13,'A3'),(14,'A4'),(15,'A5'),(16,'A6'),(17,'A7'),(18,'A8'),(19,'A9'),(20,'A10'),(21,'A1'),(22,'A2'),(23,'A3'),(24,'A4'),(25,'A5'),(26,'A6'),(27,'A7'),(28,'A8'),(29,'A9'),(30,'A10'),(31,'A1'),(32,'A2'),(33,'A3'),(34,'A4'),(35,'A5'),(36,'A6'),(37,'A7'),(38,'A8'),(39,'A9'),(40,'A10'),(41,'A1'),(42,'A2'),(43,'A3'),(44,'A4'),(45,'A5'),(46,'A6'),(47,'A7'),(48,'A8'),(49,'A9'),(50,'A10'),(51,'A1'),(52,'A2'),(53,'A3'),(54,'A4'),(55,'A5'),(56,'A6'),(57,'A7'),(58,'A8'),(59,'A9'),(60,'A10'),(61,'A1'),(62,'A2'),(63,'A3'),(64,'A4'),(65,'A5'),(66,'A6'),(67,'A7'),(68,'A8'),(69,'A9'),(70,'A10'),(71,'A1'),(72,'A2'),(73,'A3'),(74,'A4'),(75,'A5'),(76,'A6'),(77,'A7'),(78,'A8'),(79,'A9'),(80,'A10'),(81,'A1'),(82,'A2'),(83,'A3'),(84,'A4'),(85,'A5'),(86,'A6'),(87,'A7'),(88,'A8'),(89,'A9'),(90,'A10');
 /*!40000 ALTER TABLE `seat` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:34
+-- Dump completed on 2018-12-26 17:20:27

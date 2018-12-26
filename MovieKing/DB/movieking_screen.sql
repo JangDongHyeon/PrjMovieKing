@@ -16,26 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `screen`
---
-
-DROP TABLE IF EXISTS `screen`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `screen` (
-  `SCREEN_CD` int(11) NOT NULL,
-  `SCREEN_NM` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '영화관 이름',
-  `SEAT_CNT` int(11) NOT NULL DEFAULT '140' COMMENT '좌석 수',
-  PRIMARY KEY (`SCREEN_CD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='스크린(상영관) 테이블';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `screen`
 --
 
 LOCK TABLES `screen` WRITE;
 /*!40000 ALTER TABLE `screen` DISABLE KEYS */;
+INSERT INTO `screen` VALUES (1,'M'),(2,'1'),(3,'2'),(4,'M'),(5,'1'),(6,'2'),(7,'M'),(8,'1'),(9,'2');
 /*!40000 ALTER TABLE `screen` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:33
+-- Dump completed on 2018-12-26 17:20:26
