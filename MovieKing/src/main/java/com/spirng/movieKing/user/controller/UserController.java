@@ -38,9 +38,9 @@ public class UserController {
 
 	// 구글 Callback호출 메소드
 	@RequestMapping(value = "/oauth2callback", method = { RequestMethod.GET, RequestMethod.POST })
-	public String googleCallback(Model model, @RequestParam String code) throws IOException {
+	public String oauth2callback(Model model, @RequestParam String code) throws IOException {
 		System.out.println("여기는 googleCallback");
-
+		
 		return "redirect:/";
 	}
 	
