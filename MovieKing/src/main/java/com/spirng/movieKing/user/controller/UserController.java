@@ -18,21 +18,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/user/*")
 public class UserController {
-	@Autowired
+	/*@Autowired
 	private GoogleConnectionFactory googleConnectionFactory;
 	@Autowired
-	private OAuth2Parameters googleOAuth2Parameters;
+	private OAuth2Parameters googleOAuth2Parameters;*/
 	
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String getLogin(Model model, HttpSession session) {
-		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
+		/*OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
 		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
 
 		System.out.println("구글:" + url);
 
-		model.addAttribute("google_url", url);
+		model.addAttribute("google_url", url);*/
 
-		return "user/login";
+		return "/login";
 	}
 	
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="movies/nav.jsp" %>
+<%@ include file="nav.jsp" %>
 
     <header class="masthead text-center text-white d-flex">
       <div class="container my-auto">
