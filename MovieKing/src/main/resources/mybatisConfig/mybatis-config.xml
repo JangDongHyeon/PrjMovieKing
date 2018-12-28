@@ -6,7 +6,6 @@
   <typeAliases>
   <typeAlias alias="map" type="java.util.Map"/>
   <typeAlias alias="List" type="java.util.List"/>
-  <typeAlias alias="String" type="java.lang.String"/>
 
 </typeAliases>
 
