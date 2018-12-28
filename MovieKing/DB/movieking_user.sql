@@ -23,15 +23,16 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `user` (
-  `USER_CD` int(11) NOT NULL COMMENT '사용자 코드',
-  `ID` varchar(45) NOT NULL COMMENT '아이디',
-  `PW` varchar(100) NOT NULL COMMENT '비밀번호',
-  `AUTH_CD` int(11) DEFAULT NULL COMMENT '사용자 권한',
+  `USER_CD` int(11) NOT NULL AUTO_INCREMENT COMMENT '사용자 코드',
+  `ID` varchar(45) NOT NULL COMMENT '사용자 아이디',
+  `PW` varchar(100) NOT NULL COMMENT '사용자 비밀번호',
+  `ACCESS_TOKEN` varchar(45) DEFAULT NULL COMMENT 'SNS 연동 계정용 토큰',
+  `PLATFORM_TYPE` varchar(45) NOT NULL DEFAULT 'MOVIEKING' COMMENT 'SNS 종류 기본은 MOVIEKING',
+  `AUTH_CD` int(11) NOT NULL COMMENT '권한 코드',
   PRIMARY KEY (`USER_CD`),
-  UNIQUE KEY `ID_UNIQUE` (`ID`),
-  KEY `FK_AUTH_CD_idx` (`AUTH_CD`),
-  CONSTRAINT `FK_AUTH_CD` FOREIGN KEY (`AUTH_CD`) REFERENCES `auth` (`auth_cd`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='사용자 테이블';
+  KEY `FK_USER_AUTH_CD_idx` (`AUTH_CD`),
+  CONSTRAINT `FK_USER_AUTH_CD` FOREIGN KEY (`AUTH_CD`) REFERENCES `auth` (`auth_cd`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:34
+-- Dump completed on 2018-12-27 16:08:14

@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `theater`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `theater` (
-  `THEATER_CD` int(11) NOT NULL COMMENT '영화관 코드',
-  `THEATER_NM` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '영화관 이름',
-  `ADDR` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '영화관 주소',
-  PRIMARY KEY (`THEATER_CD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='영화관 테이블';
+  `THEATER_CD` int(11) NOT NULL AUTO_INCREMENT COMMENT '영화관 코드',
+  `THEATER_NM` varchar(45) NOT NULL COMMENT '영화관 이름',
+  PRIMARY KEY (`THEATER_CD`),
+  UNIQUE KEY `THEATER_NM_UNIQUE` (`THEATER_NM`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:33
+-- Dump completed on 2018-12-27 16:08:13

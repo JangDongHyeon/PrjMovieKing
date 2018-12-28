@@ -23,16 +23,18 @@ DROP TABLE IF EXISTS `ticketing`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `ticketing` (
-  `TICKETING_CD` int(11) NOT NULL COMMENT '예매 코드',
+  `TICKETING_CD` int(11) NOT NULL AUTO_INCREMENT COMMENT '예매 코드',
+  `TICKETING_UUID` varchar(36) NOT NULL COMMENT '사용자에게 보여줄 ',
+  `USER_CD` int(11) NOT NULL COMMENT '사용자 코드',
+  `TICKETING_DT` datetime NOT NULL COMMENT '예매 날짜',
   `SI_CD` int(11) NOT NULL COMMENT '상영 정보 코드',
-  `SS_CD` int(11) NOT NULL COMMENT '스크린의 좌석 코드',
-  `TICKETING_DATE` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`TICKETING_CD`),
-  KEY `FK_TING_SI_CD_idx` (`SI_CD`),
-  KEY `FK_TING_SS_CD_idx` (`SS_CD`),
-  CONSTRAINT `FK_TING_SI_CD` FOREIGN KEY (`SI_CD`) REFERENCES `screening_info` (`si_cd`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_TING_SS_CD` FOREIGN KEY (`SS_CD`) REFERENCES `screen_seat` (`ss_cd`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='예매 테이블';
+  UNIQUE KEY `TICKETING_UUID_UNIQUE` (`TICKETING_UUID`),
+  KEY `FK_TICKETING_USER_CD_idx` (`USER_CD`),
+  KEY `FK_TICKETING_SI_CD_idx` (`SI_CD`),
+  CONSTRAINT `FK_TICKETING_SI_CD` FOREIGN KEY (`SI_CD`) REFERENCES `screeing_info` (`si_cd`),
+  CONSTRAINT `FK_TICKETING_USER_CD` FOREIGN KEY (`USER_CD`) REFERENCES `user` (`user_cd`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:33
+-- Dump completed on 2018-12-27 16:08:14

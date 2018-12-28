@@ -16,30 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `screening_info`
+-- Table structure for table `screeing_info`
 --
 
-DROP TABLE IF EXISTS `screening_info`;
+DROP TABLE IF EXISTS `screeing_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `screening_info` (
-  `SI_CD` int(11) NOT NULL COMMENT '상영 정보 코드',
-  `MOVIE_CD` int(11) NOT NULL COMMENT '영화 코드 (영화는 API를 참조)',
-  `TS_CD` int(11) NOT NULL COMMENT '영화관의 스크린 코드',
-  `SI_DATE` datetime NOT NULL COMMENT '상영 시간',
+CREATE TABLE `screeing_info` (
+  `SI_CD` int(11) NOT NULL AUTO_INCREMENT COMMENT '상영 정보 코드',
+  `MOVIE_CD` int(11) NOT NULL COMMENT '영화 코드 (영화 API에서 가져올 예정)',
+  `MOVIE_STDT` datetime NOT NULL COMMENT '영화 시작 시간',
+  `MOVIE_EDT` datetime NOT NULL COMMENT '영화 종료 시간',
+  `SCREEN_CD` int(11) NOT NULL COMMENT '상영관 코드',
   PRIMARY KEY (`SI_CD`),
-  KEY `FK_SS_TS_CD_idx` (`TS_CD`),
-  CONSTRAINT `FK_SI_TS_CD` FOREIGN KEY (`TS_CD`) REFERENCES `theater_screen` (`ts_cd`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='상영 정보 테이블';
+  KEY `FK_SI_SCREEN_CD_idx` (`SCREEN_CD`),
+  CONSTRAINT `FK_SI_SCREEN_CD` FOREIGN KEY (`SCREEN_CD`) REFERENCES `screen` (`screen_cd`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `screening_info`
+-- Dumping data for table `screeing_info`
 --
 
-LOCK TABLES `screening_info` WRITE;
-/*!40000 ALTER TABLE `screening_info` DISABLE KEYS */;
-/*!40000 ALTER TABLE `screening_info` ENABLE KEYS */;
+LOCK TABLES `screeing_info` WRITE;
+/*!40000 ALTER TABLE `screeing_info` DISABLE KEYS */;
+/*!40000 ALTER TABLE `screeing_info` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:34
+-- Dump completed on 2018-12-27 16:08:13

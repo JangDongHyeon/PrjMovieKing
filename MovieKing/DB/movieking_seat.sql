@@ -23,10 +23,13 @@ DROP TABLE IF EXISTS `seat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `seat` (
-  `SEAT_CD` int(11) NOT NULL COMMENT '좌석 코드',
-  `SEAT_NM` varchar(2) NOT NULL COMMENT '좌석 이름',
-  PRIMARY KEY (`SEAT_CD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='좌석 테이블';
+  `SEAT_CD` int(11) NOT NULL AUTO_INCREMENT COMMENT '좌석 코드',
+  `SEAT_NM` varchar(45) NOT NULL COMMENT '좌석 이름',
+  `SCREEN_CD` int(11) NOT NULL COMMENT '상영관 코드',
+  PRIMARY KEY (`SEAT_CD`),
+  KEY `FK_SEAT_SCREEN_CD_idx` (`SCREEN_CD`),
+  CONSTRAINT `FK_SEAT_SCREEN_CD` FOREIGN KEY (`SCREEN_CD`) REFERENCES `screen` (`screen_cd`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:34
+-- Dump completed on 2018-12-27 16:08:14
