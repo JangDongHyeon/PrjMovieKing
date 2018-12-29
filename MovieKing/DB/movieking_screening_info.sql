@@ -16,24 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `screening_info`
---
-
-DROP TABLE IF EXISTS `screening_info`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `screening_info` (
-  `SI_CD` int(11) NOT NULL COMMENT '상영 정보 코드',
-  `MOVIE_CD` int(11) NOT NULL COMMENT '영화 코드 (영화는 API를 참조)',
-  `TS_CD` int(11) NOT NULL COMMENT '영화관의 스크린 코드',
-  `SI_DATE` datetime NOT NULL COMMENT '상영 시간',
-  PRIMARY KEY (`SI_CD`),
-  KEY `FK_SS_TS_CD_idx` (`TS_CD`),
-  CONSTRAINT `FK_SI_TS_CD` FOREIGN KEY (`TS_CD`) REFERENCES `theater_screen` (`ts_cd`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='상영 정보 테이블';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `screening_info`
 --
 
@@ -51,4 +33,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:34
+-- Dump completed on 2018-12-26 17:20:26

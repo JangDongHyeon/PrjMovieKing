@@ -16,26 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `theater`
---
-
-DROP TABLE IF EXISTS `theater`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `theater` (
-  `THEATER_CD` int(11) NOT NULL COMMENT '영화관 코드',
-  `THEATER_NM` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '영화관 이름',
-  `ADDR` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '영화관 주소',
-  PRIMARY KEY (`THEATER_CD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='영화관 테이블';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `theater`
 --
 
 LOCK TABLES `theater` WRITE;
 /*!40000 ALTER TABLE `theater` DISABLE KEYS */;
+INSERT INTO `theater` VALUES (1,'한국IT교육원 부설 영화관'),(2,'CGV 장동현점'),(3,'CGV 김성민점');
 /*!40000 ALTER TABLE `theater` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:33
+-- Dump completed on 2018-12-26 17:20:25

@@ -16,30 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `theater_screen`
---
-
-DROP TABLE IF EXISTS `theater_screen`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `theater_screen` (
-  `TS_CD` int(11) NOT NULL COMMENT '영화관의 테이블 코드',
-  `THEATER_CD` int(11) NOT NULL COMMENT '영화관 코드',
-  `SCREEN_CD` int(11) NOT NULL COMMENT '스크린 코드',
-  PRIMARY KEY (`TS_CD`),
-  KEY `FK_TS_THEATER_CD_idx` (`THEATER_CD`),
-  KEY `FK_TS_SCREEN_CD_idx` (`SCREEN_CD`),
-  CONSTRAINT `FK_TS_SCREEN_CD` FOREIGN KEY (`SCREEN_CD`) REFERENCES `screen` (`screen_cd`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_TS_THEATER_CD` FOREIGN KEY (`THEATER_CD`) REFERENCES `theater` (`theater_cd`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='영화관의 스크린 테이블';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `theater_screen`
 --
 
 LOCK TABLES `theater_screen` WRITE;
 /*!40000 ALTER TABLE `theater_screen` DISABLE KEYS */;
+INSERT INTO `theater_screen` VALUES (1,1,1),(2,1,2),(3,1,3),(4,2,4),(5,2,5),(6,2,6),(7,3,7),(8,3,8),(9,3,9);
 /*!40000 ALTER TABLE `theater_screen` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:34
+-- Dump completed on 2018-12-26 17:20:27

@@ -13,7 +13,7 @@
 		<property name="driverClassName"
 			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
 		<property name="jdbcUrl"
-			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/movieking?useSSL=false" />
+			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/movieking?serverTimezone=UTC" />
 		<property name="username" value="root" />
 		<property name="password" value="1234" />
 	</bean>
@@ -30,8 +30,8 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations"
 			value="classpath:mappers/**/*Mapper.xml" />
-		<!-- <property name="configLocation" value="classpath:/mybatisConfig/mybatis-config.xml" 
-			/> -->
+		 <property name="configLocation" value="classpath:/mybatisConfig/mybatis-config.xml" 
+			/>
 	</bean>
 
 	<bean id="sqlSession"
