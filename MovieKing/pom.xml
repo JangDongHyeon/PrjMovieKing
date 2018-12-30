@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.spring</groupId>
-	<artifactId>movieKing</artifactId>
-	<name>MovieKing</name>
+	<artifactId>aaa</artifactId>
+	<name>oepnA</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -53,6 +53,7 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+<<<<<<< HEAD
 
 		<!-- Servlet -->
 		<dependency>
@@ -91,6 +92,25 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+=======
+		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+   <groupId>com.fasterxml.jackson.core</groupId>
+   <artifactId>jackson-databind</artifactId>
+   <version>2.9.4</version>
+</dependency>
+<dependency>
+   <groupId>com.fasterxml.jackson.core</groupId>
+   <artifactId>jackson-core</artifactId>
+   <version>2.9.4</version>
+</dependency>
+<dependency>
+   <groupId>com.fasterxml.jackson.core</groupId>
+   <artifactId>jackson-annotations</artifactId>
+   <version>2.9.4</version>
+</dependency>
+>>>>>>> parent of e125a48... 888
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
@@ -165,6 +185,7 @@
 			<version>${org.apache.logging.log4j-version}</version>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>${org.apache.logging.log4j-version}</version>
@@ -177,6 +198,33 @@
 
 		<!-- Test 관련 라이브러리 -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+=======
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- Test -->
+>>>>>>> parent of e125a48... 888
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -204,8 +252,13 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
+<<<<<<< HEAD
 					<source>${java-version}</source>
 					<target>${java-version}</target>
+=======
+					<source>1.6</source>
+					<target>1.6</target>
+>>>>>>> parent of e125a48... 888
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
