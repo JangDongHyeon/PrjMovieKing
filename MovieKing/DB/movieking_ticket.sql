@@ -16,6 +16,25 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `ticket`
+--
+
+DROP TABLE IF EXISTS `ticket`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `ticket` (
+  `TICKET_CD` int(11) NOT NULL AUTO_INCREMENT COMMENT '티켓 코드',
+  `SEAT_CD` int(11) NOT NULL COMMENT '좌석 테이블 참조',
+  `TICKETING_CD` int(11) NOT NULL COMMENT '예매 테이블 참조. 예매 한 번에 여러 티켓 구매 가능.',
+  PRIMARY KEY (`TICKET_CD`),
+  KEY `FK_TICKET_SEAT_CD_idx` (`SEAT_CD`),
+  KEY `FK_TICKET_TICKETING_CD_idx` (`TICKETING_CD`),
+  CONSTRAINT `FK_TICKET_SEAT_CD` FOREIGN KEY (`SEAT_CD`) REFERENCES `seat` (`seat_cd`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_TICKET_TICKETING_CD` FOREIGN KEY (`TICKETING_CD`) REFERENCES `ticketing` (`ticketing_cd`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `ticket`
 --
 
@@ -33,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-26 17:20:27
+-- Dump completed on 2018-12-30  2:20:42
