@@ -8,7 +8,7 @@
 
 	<Loggers>
 		<!-- Application Loggers -->
-		<Logger name="com.company.project" level="INFO">
+		<Logger name="com.spring.movieKing" level="INFO">
 			<AppenderRef ref="Console" />
 		</Logger>
 

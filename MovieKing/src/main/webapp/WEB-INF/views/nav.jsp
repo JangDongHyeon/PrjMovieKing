@@ -43,7 +43,7 @@
 						<a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/movies/list">영화</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/service/">예매</a>
+						<a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/ticket/">예매</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link js-scroll-trigger" href="#portfolio">로그인</a>
