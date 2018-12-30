@@ -23,11 +23,13 @@ DROP TABLE IF EXISTS `screen`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `screen` (
-  `SCREEN_CD` int(11) NOT NULL,
-  `SCREEN_NM` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '영화관 이름',
-  `SEAT_CNT` int(11) NOT NULL DEFAULT '140' COMMENT '좌석 수',
-  PRIMARY KEY (`SCREEN_CD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='스크린(상영관) 테이블';
+  `SCREEN_CD` int(11) NOT NULL AUTO_INCREMENT COMMENT '상영관 코드',
+  `SCREEN_NM` varchar(45) CHARACTER SET utf8 NOT NULL COMMENT '상영관 이름',
+  `THEATER_CD` int(11) NOT NULL,
+  PRIMARY KEY (`SCREEN_CD`),
+  KEY `FK_SCREEN_THEATER_CD_idx` (`THEATER_CD`),
+  CONSTRAINT `FK_SCREEN_THEATER_CD` FOREIGN KEY (`THEATER_CD`) REFERENCES `theater` (`theater_cd`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +38,7 @@ CREATE TABLE `screen` (
 
 LOCK TABLES `screen` WRITE;
 /*!40000 ALTER TABLE `screen` DISABLE KEYS */;
+INSERT INTO `screen` VALUES (1,'1',1),(2,'2',1),(3,'3',1),(4,'1',2),(5,'2',2),(6,'3',2);
 /*!40000 ALTER TABLE `screen` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:27:33
+-- Dump completed on 2018-12-30  2:20:41
