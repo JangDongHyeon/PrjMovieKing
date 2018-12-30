@@ -16,12 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `user` (
+  `USER_CD` int(11) NOT NULL AUTO_INCREMENT COMMENT '사용자 코드',
+  `ID` varchar(260) CHARACTER SET utf8 NOT NULL COMMENT '아이디',
+  `PW` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `ACCESS_TOKEN` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `PLATFORM_TYPE` varchar(45) CHARACTER SET utf8 NOT NULL DEFAULT 'MOVIEKING',
+  `AUTH_CD` int(11) NOT NULL,
+  PRIMARY KEY (`USER_CD`),
+  KEY `FK_USER_AUTH_CD_idx` (`AUTH_CD`),
+  CONSTRAINT `FK_USER_AUTH_CD` FOREIGN KEY (`AUTH_CD`) REFERENCES `auth` (`auth_cd`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='사용자 테이블';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `user`
 --
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin@movieking.com','1234',1,NULL,'MOVIEKING'),(2,'user@movieking.com','1234',2,NULL,'MOVIEKING');
+INSERT INTO `user` VALUES (1,'admin@movieking','1234',NULL,'MOVIEKING',1),(2,'user2@movieking.com','1234',NULL,'MOVIEKING',2),(3,'user3@movieking.com','1234',NULL,'MOVIEKING',2),(4,'user4@movieking.com','1234',NULL,'MOVIEKING',2),(5,'user5@movieking.com','1234',NULL,'MOVIEKING',2),(6,'user6@movieking.com','1234',NULL,'MOVIEKING',2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -34,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-26 17:20:27
+-- Dump completed on 2018-12-30  2:20:42
