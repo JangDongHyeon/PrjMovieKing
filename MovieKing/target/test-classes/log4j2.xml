@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%-5p: %c - %m%n" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<!-- Application Loggers -->
+		<Logger name="com.spring.movieKing" level="INFO">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- Database Loggers -->
+		<!-- SQL 쿼리문만 출력 -->
+		<Logger name="jdbc.sqlonly" additivity="false" level="WARN">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- SQL 쿼리문, 걸린 시간 출력 -->
+		<Logger name="jdbc.sqltiming" additivity="false" level="WARN">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- only use the two logs below to trace ALL JDBC information, 
+				NOTE: This can be very voluminous! -->
+		<!-- log all jdbc calls except ResultSet calls -->
+		<Logger name="jdbc.audit" additivity="false" level="WARN">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- 쿼리 결과 출력 -->
+		<Logger name="jdbc.resultset" additivity="false" level="INFO">
+			<AppenderRef ref="Console" />
+		</Logger>
+		
+		<!-- log4jdbc 디버깅 -->
+		<Logger name="log4jdbc.debug" additivity="false" level="WARN">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- 3rdParty Loggers -->
+		<Logger name="org.springframework.core" level="INFO">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Logger name="org.springframework.beans" level="INFO">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Logger name="org.springframework.context" level="INFO">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Logger name="org.springframework.web" level="INFO">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Root level="WARN">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>
