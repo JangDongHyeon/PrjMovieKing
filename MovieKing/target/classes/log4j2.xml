@@ -9,7 +9,7 @@
 
 	<Loggers>
 		<Root level="ERROR">
-      		<AppenderRef ref="CONSOLE"/>
+      		<AppenderRef ref="Console"/>
     	</Root>
 	
 		<!-- Application Loggers -->
