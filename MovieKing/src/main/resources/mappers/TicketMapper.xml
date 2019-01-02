@@ -3,15 +3,69 @@
   	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.movieKing.ticket.dao.TicketDAO">
-	<resultMap id="theaterHashMap" type="HashMap">
-		<result property="cd" column="theater_cd" javaType="int" />
-		<result property="nm" column="theater_nm" javaType="java.lang.String" />
+	<select id="getTheaterList" resultType="Theater">
+		SELECT
+		theater_cd AS cd,
+		theater_nm AS nm
+		FROM theater
+	</select>
+
+	<resultMap id="ScreeningInfoResultMap" type="ScreeningInfo">
+		<id property="cd" column="siCd" javaType="int" />
+		<result property="movieCd" column="movieCd" javaType="int" />
+		<result property="movieStdt" column="movieStdt" javaType="String" />
+		<association property="theater" javaType="Theater">
+			<id property="cd" column="theaterCd" javaType="int" />
+			<result property="nm" column="theaterNm" javaType="String" />
+		</association>
 	</resultMap>
 
-	<select id="getTheaterList" resultMap="theaterHashMap">
+	<select id="getScreeningInfoList" parameterType="Map" resultMap="ScreeningInfoResultMap">
 		SELECT
-			theater_cd,
-			theater_nm
-		FROM theater
+		si.si_cd AS siCd,
+		t.theater_cd AS theaterCd,
+		t.theater_nm AS theaterNm,
+		si.movie_cd AS movieCd,
+		DATE_FORMAT(si.movie_stdt, '%Y-%m-%d') AS movieStdt
+		FROM screening_info AS si
+		LEFT JOIN screen AS s ON si.screen_cd = s.screen_cd
+		LEFT JOIN theater AS t
+		ON s.theater_cd = t.theater_cd
+		<choose>
+			<when test="movieCd != 0">
+				WHERE si.movie_cd = #{movieCd}
+				<if test="theaterCd != 0">
+					AND t.theater_cd = #{theaterCd}
+				</if>
+				<if test="date != null">
+					AND si.movie_stdt BETWEEN DATE_FORMAT(#{date}, '%y-%m-%d') AND DATE_ADD(DATE_FORMAT(#{date}, '%y-%m-%d'), INTERVAL '23:59' HOUR_MINUTE)
+				</if>
+				<if test="date == null">
+					<![CDATA[ AND si.movie_stdt >= DATE_FORMAT(NOW(), '%y-%m-%d') ]]>
+				</if>
+			</when>
+			<otherwise>
+				<choose>
+					<when test="theaterCd != 0">
+						WHERE t.theater_cd = #{theaterCd}
+						<if test="date != null">
+							AND si.movie_stdt BETWEEN DATE_FORMAT(#{date}, '%y-%m-%d') AND DATE_ADD(DATE_FORMAT(#{date}, '%y-%m-%d'), INTERVAL '23:59' HOUR_MINUTE)
+						</if>
+						<if test="date == null">
+					<![CDATA[ AND si.movie_stdt >= DATE_FORMAT(NOW(), '%y-%m-%d') ]]>
+						</if>
+					</when>
+					<otherwise>
+						<if test="date != null">
+							WHERE si.movie_stdt BETWEEN DATE_FORMAT(#{date}, '%y-%m-%d') AND DATE_ADD(DATE_FORMAT(#{date}, '%y-%m-%d'), INTERVAL '23:59' HOUR_MINUTE)
+						</if>
+						<if test="date == null">
+					<![CDATA[ AND si.movie_stdt >= DATE_FORMAT(NOW(), '%y-%m-%d') ]]>
+						</if>
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+		ORDER BY si.movie_cd, t.theater_cd, movieStdt ASC
 	</select>
 </mapper>

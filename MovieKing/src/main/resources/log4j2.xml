@@ -5,11 +5,15 @@
 			<PatternLayout pattern="%d{MM월 dd, yyyy HH:mm:ss} %C.%M(%F:%L) %n%-5p : %m%n" />
 			<!-- %d %C{1}.%M(%F:%L) %n[%-6p] %m%n -->
 		</Console>
+		
+		<Console name="NoLog" target="SYSTEM_OUT">
+			<PatternLayout pattern="" />
+		</Console>
 	</Appenders>
 
 	<Loggers>
 		<Root level="ERROR">
-      		<AppenderRef ref="Console"/>
+      		<AppenderRef ref="NoLog"/>
     	</Root>
 	
 		<!-- Application Loggers -->
@@ -36,12 +40,12 @@
 		</Logger>
 
 		<!-- 쿼리 결과 출력 -->
-		<Logger name="jdbc.resultset" additivity="true" level="INFO">
+		<Logger name="jdbc.resultset" additivity="true" level="WARN">
 			<AppenderRef ref="Console" />
 		</Logger>
 		
 		<!-- log4jdbc 디버깅 -->
-		<Logger name="log4jdbc.debug" additivity="true" level="INFO">
+		<Logger name="log4jdbc.debug" additivity="true" level="WARN">
 			<AppenderRef ref="Console" />
 		</Logger>
 
